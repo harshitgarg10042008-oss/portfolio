@@ -25,15 +25,24 @@ function SectionHeading({ kicker, title, copy }) {
 
 function ProfileCard() {
   const [activeGlow, setActiveGlow] = useState(0);
+  const [pointer, setPointer] = useState({ x: 0, y: 0, active: false });
   const state = glowStates[activeGlow];
+  const rotateX = pointer.active ? pointer.y * -10 : 0;
+  const rotateY = pointer.active ? pointer.x * 13 : 0;
 
   return (
     <motion.button
       type="button"
-      className={`profile-wrap ${state.className}`}
+      className={`profile-wrap ${state.className} ${pointer.active ? 'profile-hovering' : ''}`}
       onClick={() => setActiveGlow((current) => (current + 1) % glowStates.length)}
-      whileHover={{ y: -8, rotate: 1 }}
-      whileTap={{ scale: 0.98 }}
+      onPointerMove={(event) => {
+        const rect = event.currentTarget.getBoundingClientRect();
+        setPointer({ x: (event.clientX - rect.left) / rect.width - 0.5, y: (event.clientY - rect.top) / rect.height - 0.5, active: true });
+      }}
+      onPointerLeave={() => setPointer({ x: 0, y: 0, active: false })}
+      animate={{ rotateX, rotateY, scale: pointer.active ? 1.09 : 1, y: pointer.active ? -12 : 0 }}
+      transition={{ type: 'spring', stiffness: 230, damping: 18, mass: 0.55 }}
+      whileTap={{ scale: 1.03 }}
       aria-label={`Change profile card glow. Current treatment: ${state.label}`}
     >
       <span className="hanger" aria-hidden="true"><i /><b /></span>
@@ -76,11 +85,11 @@ function App() {
             <div className="hero-actions"><a className="button button-primary" href="#projects">Explore projects <ArrowUpRight size={16} /></a><a className="button button-quiet" href="#contact">Let&apos;s connect <ArrowUpRight size={16} /></a></div>
             <div className="hero-meta"><span>BASED IN<br /><strong>GREATER NOIDA, IN</strong></span><span>FOCUS<br /><strong>FULL-STACK / AI</strong></span></div>
           </motion.div>
-          <motion.div className="hero-card-stage" initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.75, delay: 0.18 }}><ProfileCard /></motion.div>
+          <div className="hero-void" aria-hidden="true"><span>SCROLL TO<br />MEET THE BUILDER</span><i /></div>
         </section>
 
         <section className="about section-pad" id="about">
-          <SectionHeading kicker="01 / THE PERSON" title="Building with intent." copy="A computer science undergraduate turning complex systems into useful, thoughtful products." />
+          <div className="about-intro"><SectionHeading kicker="01 / THE PERSON" title="Building with intent." copy="A computer science undergraduate turning complex systems into useful, thoughtful products." /><div className="about-card-stage"><ProfileCard /></div></div>
           <div className="about-grid"><div className="about-copy"><p>{personalInfo.longDescription}</p><a className="text-link" href={`mailto:${personalInfo.email}`}>Start a conversation <ArrowUpRight size={15} /></a></div><div className="stats-grid">{personalInfo.stats.map((stat) => <div className="stat" key={stat.label}><strong>{stat.value}</strong><span>{stat.label}</span></div>)}</div></div>
         </section>
 
