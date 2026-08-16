@@ -7,7 +7,7 @@ export default function Marquee() {
   
   return (
     <div className="w-full overflow-hidden bg-bg-card-2 py-4 border-t border-white/5 flex items-center relative group">
-      <div className="absolute inset-0 z-10 pointer-events-none shadow-[inset_20px_0_40px_var(--bg-black),inset_-20px_0_40px_var(--bg-black)]" />
+      <div className="absolute inset-0 z-10 pointer-events-none shadow-[inset_20px_0_40px_#0a0a0c,inset_-20px_0_40px_#0a0a0c]" />
       
       <motion.div
         className="flex whitespace-nowrap"

@@ -1,6 +1,6 @@
 "use client";
 
-import { SiGithub } from "react-icons/si";
+import { SiGithub, SiInstagram } from "react-icons/si";
 import { FaLinkedin } from "react-icons/fa";
 import Marquee from "./Marquee";
 
@@ -10,7 +10,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="pt-20 bg-bg-base">
+    <footer className="pt-20">
       <div className="max-w-6xl mx-auto px-6 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Left */}
@@ -35,6 +35,14 @@ export default function Footer() {
             className="text-white/70 hover:text-white hover:scale-110 transition-all duration-300"
           >
             <FaLinkedin className="text-2xl" />
+          </a>
+          <a 
+            href="https://instagram.com/harshit_garg77" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="text-white/70 hover:text-white hover:scale-110 transition-all duration-300"
+          >
+            <SiInstagram className="text-2xl" />
           </a>
         </div>
         

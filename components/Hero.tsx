@@ -5,9 +5,6 @@ import HeroCard from "./HeroCard";
 export default function Hero() {
   return (
     <section id="home" className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden">
-      {/* Background Ambient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-glow blur-[120px] opacity-20 pointer-events-none animate-pulse-slow mix-blend-screen" />
-
       <div className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-8">
         
         {/* Left Column: Text */}
