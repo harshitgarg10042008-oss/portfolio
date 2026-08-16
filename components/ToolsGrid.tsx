@@ -44,9 +44,18 @@ export default function ToolsGrid() {
               variants={item}
               className="bg-bg-card-2 border border-white/5 rounded-xl p-4 flex items-center gap-4 hover:border-purple-glow/40 hover:-translate-y-0.5 hover:shadow-glow-purple transition-all duration-300 group"
             >
-              <div className="text-3xl text-white/70 group-hover:text-purple-glow transition-colors">
+              <motion.div
+                className="text-3xl text-white/70 group-hover:text-purple-glow transition-colors"
+                animate={{ y: [0, -6, 0] }}
+                transition={{
+                  duration: 2.4 + (index % 4) * 0.3,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: index * 0.15,
+                }}
+              >
                 <tool.icon />
-              </div>
+              </motion.div>
               <div>
                 <h4 className="font-poppins font-semibold text-white text-sm">{tool.name}</h4>
                 <p className="font-inter text-white/50 text-xs">{tool.category}</p>
