@@ -28,9 +28,6 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
           className="object-cover group-hover:scale-105 transition-transform duration-500"
           onError={(e) => { e.currentTarget.style.display = 'none'; }}
         />
-        <div className="absolute inset-0 flex items-center justify-center text-white/20 text-xs text-center px-4">
-          [Image: /images/projects/{imageSlug}.jpg]
-        </div>
       </div>
       
       <div className="p-6">
