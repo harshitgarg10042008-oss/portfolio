@@ -11,7 +11,7 @@ const KONAMI = [
 ];
 
 export default function KonamiEasterEgg() {
-  const [_, setBuffer] = useState<string[]>([]);
+  const [, setBuffer] = useState<string[]>([]);
   const [showToast, setShowToast] = useState(false);
 
   // Dev console greeting on mount
