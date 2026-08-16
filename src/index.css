@@ -62,3 +62,22 @@ button { font: inherit; }
 .hero-card-stage { min-height: 390px; padding-top: 12px; display: flex; justify-content: center; perspective: 900px; }
 .hero-card-stage .profile-wrap { margin-top: 10px; }
 @media (max-width: 800px) { .hero-card-stage { min-height: 350px; } }
+
+/* Latest hero-only reference pass. */
+.hero-only { min-height: 100vh; padding-top: clamp(32px, 6vh, 74px); }
+.hero-only .outer-intro h1 { gap: .02em; }
+.hero-only .outer-intro h1 span { text-transform: none; letter-spacing: -.09em; }
+.hero-only .outer-intro h1 span:nth-child(2) { font-size: .38em; letter-spacing: -.055em; line-height: 1.25; color: transparent; background: linear-gradient(180deg, #9af5e8, #2eb9ad); -webkit-background-clip: text; background-clip: text; }
+.hero-only .portfolio-window { margin-top: 8px; }
+.hero-only .hero { min-height: 500px; }
+.progressive-bio { min-height: 78px; }
+.progressive-bio span { display: inline; opacity: 0; filter: blur(3px); transform: translateY(4px); transition: opacity .24s ease, filter .24s ease, transform .24s ease; }
+.progressive-bio span.word-visible { opacity: 1; filter: blur(0); transform: translateY(0); }
+.hero-only .profile-card { border-radius: 21px; }
+.hero-only .photo-frame { position: relative; }
+.photo-sheen { position: absolute; inset: -40%; z-index: 2; pointer-events: none; opacity: 0; background: linear-gradient(115deg, transparent 32%, rgba(255,255,255,.35) 45%, rgba(110,255,232,.28) 51%, transparent 64%); transform: translateX(-34%) rotate(12deg); transition: opacity .3s ease, transform .7s cubic-bezier(.23,1,.32,1); mix-blend-mode: screen; }
+.profile-hovering .photo-sheen { opacity: .9; transform: translateX(24%) rotate(12deg); }
+@media (max-width: 800px) {
+  .hero-only .hero { min-height: 680px; }
+  .hero-only .outer-intro h1 span:nth-child(2) { font-size: .34em; }
+}
