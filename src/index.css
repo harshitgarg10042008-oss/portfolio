@@ -49,3 +49,16 @@ button { font: inherit; }
   .about-intro { grid-template-columns: 1fr; gap: 28px; }
   .about-card-stage { min-height: 340px; }
 }
+
+/* Inner photo illumination: the reference glow washes across the image, not only the border. */
+.photo-frame { position: relative; display: block; overflow: hidden; border-radius: 11px; isolation: isolate; }
+.profile-card .photo-frame img { display: block; }
+.photo-glow { position: absolute; inset: -18%; z-index: 1; pointer-events: none; opacity: .18; mix-blend-mode: screen; background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(255,255,255,.9) 0, rgba(95,255,237,.68) 13%, rgba(95,255,237,.18) 30%, transparent 56%); filter: blur(9px); transform: scale(1.15); transition: opacity .35s ease, background .35s ease; }
+.profile-hovering .photo-glow { opacity: .74; }
+.glow-violet .photo-glow { background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(255,255,255,.95) 0, rgba(177,113,255,.82) 16%, rgba(91,71,255,.34) 34%, transparent 62%); }
+.glow-cyan .photo-glow { background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(255,255,255,.95) 0, rgba(67,241,255,.85) 16%, rgba(0,199,226,.34) 35%, transparent 62%); }
+.glow-green .photo-glow { background: radial-gradient(circle at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(255,255,255,.95) 0, rgba(91,255,184,.84) 16%, rgba(28,222,137,.3) 35%, transparent 62%); }
+.glow-rainbow .photo-glow { background: conic-gradient(from 140deg at var(--pointer-x, 50%) var(--pointer-y, 50%), rgba(255,69,222,.75), rgba(75,244,255,.75), rgba(113,255,159,.7), rgba(255,235,115,.72), rgba(255,69,222,.75)); filter: blur(13px); }
+.hero-card-stage { min-height: 390px; padding-top: 12px; display: flex; justify-content: center; perspective: 900px; }
+.hero-card-stage .profile-wrap { margin-top: 10px; }
+@media (max-width: 800px) { .hero-card-stage { min-height: 350px; } }

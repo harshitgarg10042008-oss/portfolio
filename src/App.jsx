@@ -34,6 +34,7 @@ function ProfileCard() {
     <motion.button
       type="button"
       className={`profile-wrap ${state.className} ${pointer.active ? 'profile-hovering' : ''}`}
+      style={{ '--pointer-x': `${(pointer.x + 0.5) * 100}%`, '--pointer-y': `${(pointer.y + 0.5) * 100}%` }}
       onClick={() => setActiveGlow((current) => (current + 1) % glowStates.length)}
       onPointerMove={(event) => {
         const rect = event.currentTarget.getBoundingClientRect();
@@ -48,7 +49,7 @@ function ProfileCard() {
       <span className="hanger" aria-hidden="true"><i /><b /></span>
       <span className="profile-card">
         <span className="card-topline"><span>HG / 001</span><span>●</span></span>
-        <img src={profilePhoto} alt="Harshit Garg" />
+        <span className="photo-frame"><img src={profilePhoto} alt="Harshit Garg" /><span className="photo-glow" aria-hidden="true" /></span>
         <span className="card-rule" />
         <span className="card-name">Harshit<br />Garg</span>
         <span className="card-role">FULL-STACK<br />DEVELOPER</span>
@@ -85,11 +86,11 @@ function App() {
             <div className="hero-actions"><a className="button button-primary" href="#projects">Explore projects <ArrowUpRight size={16} /></a><a className="button button-quiet" href="#contact">Let&apos;s connect <ArrowUpRight size={16} /></a></div>
             <div className="hero-meta"><span>BASED IN<br /><strong>GREATER NOIDA, IN</strong></span><span>FOCUS<br /><strong>FULL-STACK / AI</strong></span></div>
           </motion.div>
-          <div className="hero-void" aria-hidden="true"><span>SCROLL TO<br />MEET THE BUILDER</span><i /></div>
+          <motion.div className="hero-card-stage" initial={{ opacity: 0, x: 30, scale: .92 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: .8, delay: .38, ease: [0.23, 1, 0.32, 1] }}><ProfileCard /></motion.div>
         </section>
 
         <section className="about section-pad" id="about">
-          <div className="about-intro"><SectionHeading kicker="01 / THE PERSON" title="Building with intent." copy="A computer science undergraduate turning complex systems into useful, thoughtful products." /><div className="about-card-stage"><ProfileCard /></div></div>
+          <div className="about-intro"><SectionHeading kicker="01 / THE PERSON" title="Building with intent." copy="A computer science undergraduate turning complex systems into useful, thoughtful products." /></div>
           <div className="about-grid"><div className="about-copy"><p>{personalInfo.longDescription}</p><a className="text-link" href={`mailto:${personalInfo.email}`}>Start a conversation <ArrowUpRight size={15} /></a></div><div className="stats-grid">{personalInfo.stats.map((stat) => <div className="stat" key={stat.label}><strong>{stat.value}</strong><span>{stat.label}</span></div>)}</div></div>
         </section>
 
