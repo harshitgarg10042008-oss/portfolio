@@ -3,6 +3,7 @@
 import { useRef, useState, useEffect } from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import Image from "next/image";
+import { FaEnvelope } from "react-icons/fa";
 
 export default function HeroCard() {
   const cardRef = useRef<HTMLDivElement>(null);
@@ -103,8 +104,8 @@ export default function HeroCard() {
 
         <div className="flex items-center justify-between mt-auto">
           <div className="flex flex-col">
-            <span className="text-white/60 text-xs font-inter mb-1 flex items-center gap-2">
-              @harshitgarg10042008
+            <span className="text-white/60 text-[0.65rem] font-inter mb-1 flex items-center gap-1.5">
+              <FaEnvelope className="text-white/40" /> harshit77.edu@gmail.com
               <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" title="Online"></span>
             </span>
           </div>
