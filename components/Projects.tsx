@@ -11,7 +11,7 @@ export default function Projects() {
           <h2 className="font-poppins font-bold text-[clamp(1.6rem,3vw,2.2rem)] text-white mb-4">
             Project
           </h2>
-          <p className="font-inter text-[--text-secondary] max-w-2xl mx-auto text-balance italic">
+          <p className="font-inter text-white/70 max-w-2xl mx-auto text-balance italic">
             &ldquo;A selection of full-stack and AI projects reflecting my focus on production-ready, secure, and scalable systems.&rdquo;
           </p>
         </div>

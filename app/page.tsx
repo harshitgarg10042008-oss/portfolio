@@ -9,15 +9,16 @@ import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[--bg-black] text-[--text-primary] selection:bg-[--purple-glow] selection:text-white">
-      <Loader />
-      <Navbar />
-      <Hero />
-      <AboutMe />
-      <ToolsGrid />
-      <Projects />
-      <ContactChat />
-      <Footer />
+    <main className="min-h-screen bg-bg-base text-white selection:bg-purple-glow selection:text-white">
+      <Loader>
+        <Navbar />
+        <Hero />
+        <AboutMe />
+        <ToolsGrid />
+        <Projects />
+        <ContactChat />
+        <Footer />
+      </Loader>
     </main>
   );
 }

@@ -96,14 +96,11 @@ export default function LanyardCard() {
               className="object-cover"
               onError={(e) => { e.currentTarget.style.display = 'none'; }}
             />
-            <div className="absolute inset-0 flex items-center justify-center text-white/20 text-[0.5rem] text-center px-2">
-              [Photo: /images/lanyard-photo.jpg]
-            </div>
           </div>
           
           <div className="text-center w-full mt-1">
             <h4 className="text-white font-poppins font-bold text-xs">Harshit Garg</h4>
-            <span className="inline-block mt-1 px-2 py-0.5 rounded-full bg-[--purple-glow-soft] text-white text-[0.55rem] font-semibold whitespace-nowrap">
+            <span className="inline-block mt-1 px-2 py-0.5 rounded-full bg-purple-glow/20 text-white text-[0.55rem] font-semibold whitespace-nowrap">
               Full-Stack & AI
             </span>
           </div>

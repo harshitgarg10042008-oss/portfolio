@@ -71,7 +71,7 @@ export default function HeroCard() {
         scale: isHovered && !isMobile ? 1.04 : 1,
         transformStyle: "preserve-3d",
       }}
-      className="relative w-full max-w-[280px] h-[380px] mx-auto rounded-2xl bg-[--bg-card] border border-[--purple-glow-soft] shadow-[0_0_40px_-10px_var(--purple-glow-soft)] transition-shadow duration-300 overflow-hidden flex flex-col p-5 group"
+      className="relative w-full max-w-[280px] h-[380px] mx-auto rounded-2xl bg-bg-card border border-purple-glow/40 shadow-glow-purple transition-shadow duration-300 overflow-hidden flex flex-col p-5 group"
     >
       {/* Holographic Sheen Overlay */}
       <motion.div
@@ -88,24 +88,17 @@ export default function HeroCard() {
       {/* Card Content */}
       <div className="relative z-10 flex flex-col h-full" style={{ transform: "translateZ(30px)" }}>
         <h3 className="text-white font-poppins font-bold text-xl">Harshit Garg</h3>
-        <p className="text-[--text-secondary] font-inter text-sm mb-4">Full-Stack Developer</p>
+        <p className="text-white/70 font-inter text-sm mb-4">Full-Stack Developer</p>
         
         <div className="flex-grow rounded-xl overflow-hidden relative mb-4 bg-black/40">
            {/* Placeholder for real photo. The user will place /images/hero-photo.jpg */}
-           <Image 
-             src="/images/hero-photo.jpg" 
-             alt="Harshit Garg" 
-             fill 
-             priority
-             className="object-cover"
-             onError={(e) => {
-               // Fallback if image doesn't exist yet
-               e.currentTarget.style.display = 'none';
-             }}
-           />
-           <div className="absolute inset-0 flex items-center justify-center text-white/20 text-xs text-center p-4">
-             [Photo: /public/images/hero-photo.jpg]
-           </div>
+          <Image
+            src="/images/hero-photo.jpg"
+            alt="Harshit Garg"
+            fill
+            className="object-cover"
+            priority
+          />
         </div>
 
         <div className="flex items-center justify-between mt-auto">

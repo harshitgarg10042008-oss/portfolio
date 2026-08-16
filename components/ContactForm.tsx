@@ -30,7 +30,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="bg-[--bg-card] rounded-2xl border border-[--purple-glow-soft] shadow-[0_0_40px_-10px_var(--purple-glow-soft)] p-8 h-[500px] flex flex-col">
+    <div className="bg-bg-card rounded-2xl border border-purple-glow/40 shadow-glow-purple p-8 h-[500px] flex flex-col">
       <h3 className="font-poppins font-semibold text-white text-xl mb-6">Send a Message</h3>
       
       <form onSubmit={handleSubmit} className="flex flex-col gap-4 flex-1">
@@ -41,7 +41,7 @@ export default function ContactForm() {
             placeholder="Full Name"
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-            className="w-full bg-[--bg-card-2] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[--purple-glow] transition-colors"
+            className="w-full bg-bg-card-2 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-glow transition-colors"
           />
         </div>
         <div>
@@ -51,7 +51,7 @@ export default function ContactForm() {
             placeholder="Email Address"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-            className="w-full bg-[--bg-card-2] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[--purple-glow] transition-colors"
+            className="w-full bg-bg-card-2 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-glow transition-colors"
           />
         </div>
         <div className="flex-1">
@@ -60,7 +60,7 @@ export default function ContactForm() {
             placeholder="Message"
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-            className="w-full h-full min-h-[120px] bg-[--bg-card-2] border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-[--purple-glow] transition-colors resize-none"
+            className="w-full h-full min-h-[120px] bg-bg-card-2 border border-white/10 rounded-xl px-4 py-3 text-sm text-white focus:outline-none focus:border-purple-glow transition-colors resize-none"
           />
         </div>
         

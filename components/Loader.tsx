@@ -1,9 +1,9 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, ReactNode } from "react";
 import { animate, motion } from "framer-motion";
 
-export default function Loader() {
+export default function Loader({ children }: { children: ReactNode }) {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setIsLoaded] = useState(false);
   const [shouldRender, setShouldRender] = useState(true);
@@ -12,6 +12,7 @@ export default function Loader() {
     const hasVisited = sessionStorage.getItem("hasVisited");
     if (hasVisited) {
       setShouldRender(false);
+      setIsLoaded(true);
       return;
     }
 
@@ -30,21 +31,28 @@ export default function Loader() {
     return () => controls.stop();
   }, []);
 
-  if (!shouldRender) return null;
-
   return (
-    <motion.div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-[--bg-black]"
-      initial={{ opacity: 1, y: 0 }}
-      animate={isLoaded ? { opacity: 0, y: -20 } : { opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, ease: "easeInOut" }}
-    >
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <div className="w-[300px] h-[300px] rounded-full bg-[--teal-glow] blur-[120px] opacity-30 animate-pulse"></div>
+    <>
+      <div
+        className={`transition-all duration-700 ease-in-out ${
+          !isLoaded ? "blur-[20px] pointer-events-none select-none" : "blur-0"
+        }`}
+      >
+        {children}
       </div>
-      <div className="relative z-10 text-[3rem] md:text-[5rem] font-poppins font-bold text-white">
-        {progress}
-      </div>
-    </motion.div>
+
+      {shouldRender && (
+        <motion.div
+          className="fixed inset-0 z-50 flex items-center justify-center pointer-events-none"
+          initial={{ opacity: 1 }}
+          animate={isLoaded ? { opacity: 0 } : { opacity: 1 }}
+          transition={{ duration: 0.4, ease: "easeInOut", delay: 0.1 }}
+        >
+          <div className="relative z-10 text-[3rem] md:text-[5rem] font-poppins font-bold text-white">
+            {progress}
+          </div>
+        </motion.div>
+      )}
+    </>
   );
 }

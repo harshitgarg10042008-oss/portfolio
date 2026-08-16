@@ -38,7 +38,7 @@ export default function AboutMe() {
   return (
     <section id="about" className="py-24 md:py-32">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="bg-[--bg-card] rounded-2xl border border-[--purple-glow-soft] shadow-[0_0_40px_-10px_var(--purple-glow-soft)] p-8 md:p-12 relative overflow-hidden">
+        <div className="bg-bg-card rounded-2xl border border-purple-glow/40 shadow-glow-purple p-8 md:p-12 relative overflow-hidden">
           
           <div className="flex flex-col md:flex-row gap-12 items-center">
             
@@ -49,7 +49,7 @@ export default function AboutMe() {
               </h2>
               
               <motion.div
-                className="font-inter text-[0.95rem] leading-[1.7] text-[--text-secondary] mb-10 flex flex-wrap gap-x-1"
+                className="font-inter text-[0.95rem] leading-[1.7] text-white/70 mb-10 flex flex-wrap gap-x-1"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
@@ -65,19 +65,19 @@ export default function AboutMe() {
               <div className="grid grid-cols-3 gap-4 mb-6">
                 <div className="flex flex-col">
                   <span className="font-poppins font-bold text-3xl md:text-4xl text-white mb-1">5+</span>
-                  <span className="font-inter text-xs text-[--text-muted] uppercase tracking-wider">Projects Shipped</span>
+                  <span className="font-inter text-xs text-white/50 uppercase tracking-wider">Projects Shipped</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-poppins font-bold text-3xl md:text-4xl text-white mb-1">2+</span>
-                  <span className="font-inter text-xs text-[--text-muted] uppercase tracking-wider">Years of Experience</span>
+                  <span className="font-inter text-xs text-white/50 uppercase tracking-wider">Years of Experience</span>
                 </div>
                 <div className="flex flex-col">
                   <span className="font-poppins font-bold text-3xl md:text-4xl text-white mb-1">30+</span>
-                  <span className="font-inter text-xs text-[--text-muted] uppercase tracking-wider">REST APIs Built</span>
+                  <span className="font-inter text-xs text-white/50 uppercase tracking-wider">REST APIs Built</span>
                 </div>
               </div>
               
-              <div className="text-sm font-poppins font-medium text-white/60 italic border-l-2 border-[--purple-glow] pl-4">
+              <div className="text-sm font-poppins font-medium text-white/60 italic border-l-2 border-purple-glow pl-4">
                 &quot;Engineering ideas into scalable systems.&quot;
               </div>
             </div>

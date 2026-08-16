@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section id="home" className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden">
       {/* Background Ambient Glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-[--teal-glow] blur-[120px] opacity-20 pointer-events-none animate-pulse-slow mix-blend-screen" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-teal-glow blur-[120px] opacity-20 pointer-events-none animate-pulse-slow mix-blend-screen" />
 
       <div className="max-w-6xl mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-12 md:gap-8">
         
@@ -18,10 +18,10 @@ export default function Hero() {
           </div>
           
           <h1 className="font-poppins font-extrabold text-[clamp(2.2rem,5vw,3.5rem)] leading-tight text-white mb-6 text-balance">
-            Hi I&apos;m <span className="text-[--accent]">Harshit Garg</span>
+            Hi I&apos;m <span className="text-accent">Harshit Garg</span>
           </h1>
           
-          <p className="font-inter text-[0.95rem] leading-[1.7] text-[--text-secondary] max-w-lg mb-8 text-balance">
+          <p className="font-inter text-[0.95rem] leading-[1.7] text-white/70 max-w-lg mb-8 text-balance">
             Computer Science undergraduate and full-stack developer building production-oriented web applications and AI-assisted systems. Passionate about crafting scalable, high-performance digital solutions.
           </p>
 

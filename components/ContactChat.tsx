@@ -9,7 +9,7 @@ export default function ContactChat() {
           <h2 className="font-poppins font-bold text-[clamp(1.6rem,3vw,2.2rem)] text-white mb-4">
             Contact & Chat
           </h2>
-          <p className="font-inter text-[--text-secondary]">
+          <p className="font-inter text-white/70">
             Get in touch with me or chat in real-time
           </p>
         </div>

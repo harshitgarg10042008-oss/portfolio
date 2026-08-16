@@ -10,7 +10,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="pt-20 bg-[--bg-black]">
+    <footer className="pt-20 bg-bg-base">
       <div className="max-w-6xl mx-auto px-6 mb-12 flex flex-col md:flex-row items-center justify-between gap-6">
         
         {/* Left */}
@@ -41,7 +41,7 @@ export default function Footer() {
         {/* Right - Back to Top */}
         <button 
           onClick={scrollToTop}
-          className="w-10 h-10 rounded-full bg-[--bg-card-2] border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
+          className="w-10 h-10 rounded-full bg-bg-card-2 border border-white/10 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/10 transition-colors"
           title="Back to top"
         >
           ↑

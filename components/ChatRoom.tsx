@@ -8,16 +8,16 @@ const staticMessages = [
 
 export default function ChatRoom() {
   return (
-    <div className="bg-[--bg-card] rounded-2xl border border-[--purple-glow-soft] shadow-[0_0_40px_-10px_var(--purple-glow-soft)] flex flex-col h-[500px] overflow-hidden">
+    <div className="bg-bg-card rounded-2xl border border-purple-glow/40 shadow-glow-purple flex flex-col h-[500px] overflow-hidden">
       {/* Header */}
-      <div className="bg-[--bg-card-2] p-4 border-b border-white/5 flex items-center gap-3">
-        <div className="w-8 h-8 rounded-full bg-[--purple-glow-soft] flex items-center justify-center text-white">
+      <div className="bg-bg-card-2 p-4 border-b border-white/5 flex items-center gap-3">
+        <div className="w-8 h-8 rounded-full bg-purple-glow/20 flex items-center justify-center text-white">
           💬
         </div>
         <h3 className="font-poppins font-semibold text-white">Chat Room</h3>
         <div className="ml-auto flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-          <span className="text-xs font-inter text-[--text-muted]">Demo</span>
+          <span className="text-xs font-inter text-white/50">Demo</span>
         </div>
       </div>
 
@@ -29,17 +29,17 @@ export default function ChatRoom() {
             className={`flex gap-3 max-w-[85%] ${msg.self ? "ml-auto flex-row-reverse" : ""}`}
           >
             {/* Avatar circle */}
-            <div className="w-8 h-8 rounded-full shrink-0 bg-[--bg-card-2] border border-white/10 flex items-center justify-center text-white text-xs font-poppins font-bold">
+            <div className="w-8 h-8 rounded-full shrink-0 bg-bg-card-2 border border-white/10 flex items-center justify-center text-white text-xs font-poppins font-bold">
               {msg.name.charAt(0)}
             </div>
 
             <div className={`flex flex-col ${msg.self ? "items-end" : "items-start"}`}>
-              <span className="text-[0.65rem] text-[--text-muted] mb-1 px-1">{msg.name}</span>
+              <span className="text-[0.65rem] text-white/50 mb-1 px-1">{msg.name}</span>
               <div
                 className={`px-4 py-2 rounded-2xl text-sm font-inter ${
                   msg.self
-                    ? "bg-[--purple-glow] text-white rounded-tr-none"
-                    : "bg-[--bg-card-2] text-[--text-primary] border border-white/5 rounded-tl-none"
+                    ? "bg-purple-glow text-white rounded-tr-none"
+                    : "bg-bg-card-2 text-white border border-white/5 rounded-tl-none"
                 }`}
               >
                 {msg.text}
@@ -50,8 +50,8 @@ export default function ChatRoom() {
       </div>
 
       {/* Footer note */}
-      <div className="p-3 bg-[--bg-card-2] border-t border-white/5 text-center">
-        <span className="text-[0.65rem] font-inter text-[--text-muted] italic">
+      <div className="p-3 bg-bg-card-2 border-t border-white/5 text-center">
+        <span className="text-[0.65rem] font-inter text-white/50 italic">
           This is a demo chat. Use the contact form to reach Harshit →
         </span>
       </div>

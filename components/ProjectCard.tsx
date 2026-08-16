@@ -18,7 +18,7 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-[--bg-card] rounded-2xl border border-[--border-subtle] overflow-hidden group hover:border-[--purple-glow-soft] hover:-translate-y-1 hover:shadow-[0_10px_40px_-15px_var(--purple-glow-soft)] transition-all duration-300"
+      className="block bg-bg-card rounded-2xl border border-white/10 overflow-hidden group hover:border-purple-glow/40 hover:-translate-y-1 hover:shadow-glow-purple-lg transition-all duration-300"
     >
       <div className="w-full h-48 bg-black/40 relative overflow-hidden">
         <Image 
@@ -35,7 +35,7 @@ export default function ProjectCard({ title, description, tech, link }: ProjectP
       
       <div className="p-6">
         <h3 className="font-poppins font-bold text-white text-lg mb-2 line-clamp-1">{title}</h3>
-        <p className="font-inter text-[--text-secondary] text-sm leading-relaxed mb-6 line-clamp-2">
+        <p className="font-inter text-white/70 text-sm leading-relaxed mb-6 line-clamp-2">
           {description}
         </p>
         
