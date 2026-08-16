@@ -68,7 +68,7 @@ export default function AboutMe() {
                   <span className="font-inter text-xs text-white/50 uppercase tracking-wider">Projects Shipped</span>
                 </div>
                 <div className="flex flex-col">
-                  <span className="font-poppins font-bold text-3xl md:text-4xl text-white mb-1">2+</span>
+                  <span className="font-poppins font-bold text-3xl md:text-4xl text-white mb-1">1+</span>
                   <span className="font-inter text-xs text-white/50 uppercase tracking-wider">Years of Experience</span>
                 </div>
                 <div className="flex flex-col">
