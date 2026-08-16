@@ -26,7 +26,7 @@ function ProgressiveBio() {
   return <p className="hero-lede progressive-bio" aria-label={bio}>{words.map((word, index) => <span key={`${word}-${index}`} className={index < visibleWords ? 'word-visible' : ''}>{word}{index < words.length - 1 ? ' ' : ''}</span>)}</p>;
 }
 
-function ProfileCard() {
+function ProfileCard({ hanging = false }) {
   const [activeGlow, setActiveGlow] = useState(0);
   const [pointer, setPointer] = useState({ x: 50, y: 50, active: false });
   const state = glowStates[activeGlow];
@@ -34,7 +34,7 @@ function ProfileCard() {
   return (
     <motion.button
       type="button"
-      className={`profile-wrap ${state.className} ${pointer.active ? 'profile-hovering' : ''}`}
+      className={`profile-wrap ${hanging ? 'profile-hanging' : ''} ${state.className} ${pointer.active ? 'profile-hovering' : ''}`}
       style={{ '--pointer-x': `${pointer.x}%`, '--pointer-y': `${pointer.y}%` }}
       onClick={() => setActiveGlow((current) => (current + 1) % glowStates.length)}
       onPointerMove={(event) => {
@@ -46,6 +46,7 @@ function ProfileCard() {
       transition={{ type: 'spring', stiffness: 220, damping: 19, mass: 0.55 }}
       aria-label={`Profile card. Hover to illuminate. Click to change ${state.label} glow.`}
     >
+      {hanging && <span className="hanger" aria-hidden="true"><i /><b /></span>}
       <span className="profile-card">
         <span className="card-topline"><span>HG / 001</span><span>●</span></span>
         <span className="photo-frame"><img src={profilePhoto} alt="Harshit Garg" /><span className="photo-glow" aria-hidden="true" /><span className="photo-sheen" aria-hidden="true" /></span>
@@ -81,6 +82,19 @@ function App() {
           </motion.div>
           <motion.div className="hero-card-stage" initial={{ opacity: 0, x: 30, scale: .9 }} animate={{ opacity: 1, x: 0, scale: 1 }} transition={{ duration: .8, delay: .35, ease: [0.23, 1, 0.32, 1] }}><ProfileCard /></motion.div>
         </section>
+        <motion.section className="about-state section-pad" id="about" initial="hidden" whileInView="visible" viewport={{ once: true, amount: .28 }}>
+          <div className="about-state-grid">
+            <div className="about-state-copy">
+              <motion.span className="eyebrow" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0, transition: { delay: .38, duration: .4 } } }}>01 / THE PERSON</motion.span>
+              <motion.h2 variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { delay: .54, duration: .48 } } }}>Building with<br /><em>intent.</em></motion.h2>
+              <motion.p className="about-state-lede" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0, transition: { delay: .7, duration: .48 } } }}>Computer Science undergraduate and full-stack developer building production-oriented web applications and AI-assisted systems.</motion.p>
+              <motion.p className="about-state-detail" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0, transition: { delay: .86, duration: .48 } } }}>Experienced with JavaScript, TypeScript, Python, React, Node.js, Express, REST APIs, PostgreSQL, computer vision, speech analysis, GitHub integrations, and cloud deployment.</motion.p>
+            </div>
+            <motion.div className="about-state-card-stage" variants={{ hidden: { opacity: 0, x: 22 }, visible: { opacity: 1, x: 0, transition: { delay: 1.02, duration: .65 } } }}><ProfileCard hanging /></motion.div>
+          </div>
+          <motion.div className="stats-row" variants={{ hidden: { opacity: 0, y: 18 }, visible: { opacity: 1, y: 0, transition: { delay: 1.15, duration: .55 } } }}>{personalInfo.stats.map((stat) => <div className="state-stat" key={stat.label}><strong>{stat.value}</strong><span>{stat.label}</span></div>)}</motion.div>
+          <motion.div className="tools-teaser" variants={{ hidden: { opacity: 0, y: 14 }, visible: { opacity: 1, y: 0, transition: { delay: 1.3, duration: .5 } } }}><span>02 / NEXT STATE</span><strong>Tools &amp; Technologies</strong><i /></motion.div>
+        </motion.section>
       </div>
     </main>
   );
