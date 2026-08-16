@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-card {
+    @apply bg-card border border-card-border shadow-2xl backdrop-blur-sm;
+  }
+  .text-glow {
+    text-shadow: 0 0 20px rgba(45, 212, 191, 0.5);
+  }
+}
